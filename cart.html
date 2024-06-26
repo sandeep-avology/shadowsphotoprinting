@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cart - Shadows Photo Printing</title>
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .coupon-inner {
+            padding: 30px 15px;
+        }
+
+        .coupon-wrapper {
+            padding: 15px;
+            margin-bottom: 24px;
+            background-color: #16a085;
+            margin-left: 0;
+            color: #fff;
+            list-style: none;
+            line-height: 24px;
+            border-left: 8px solid rgba(0, 0, 0, .15);
+        }
+
+        .coupon-wrapper p {
+            margin-bottom: 0;
+        }
+
+        .cart-summary h2 {
+            font-family: "Source Sans Pro";
+            line-height: 40px;
+            letter-spacing: 1.2px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 30px;
+        }
+
+        td.product-thumbnail img {
+            max-width: 60px;
+        }
+
+        .entry-content table.cart .product-remove {
+            width: 28px;
+        }
+
+        .product-thumbnail {
+            width: 68px;
+        }
+
+        .kt-woo-cart-form-wrap th {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: bold;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .kt-woo-cart-form-wrap td {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            padding: 10px 4px;
+        }
+
+        .kt-woo-cart-form-wrap table {
+            width: 100%;
+        }
+
+        .cart_totals h2 {
+            font-family: "Source Sans Pro";
+            line-height: 40px;
+            letter-spacing: 1.2px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 30px;
+            padding: 10px 4px;
+        }
+
+        .coupon-icons {
+            width: 70%;
+            float: left;
+        }
+
+        .coupon-icons input {
+            color: #222;
+            position: relative;
+            width: 100%;
+            background-color: rgba(0, 0, 0, .07);
+            border-radius: 0;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            box-shadow: rgba(0, 0, 0, .0980392) 0 1px 0;
+            display: inline-block;
+            max-width: 200px;
+            border: 1px solid #eeeeee4a;
+            color: #fff;
+            padding: 10px;
+            outline: none;
+
+        }
+
+        th.product-remove {
+            width: 28px;
+        }
+
+        .coupon-icons button.button {
+            -webkit-box-shadow: inset 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 0 transparent;
+            background-color: #16a085;
+            border: 0;
+            border-radius: 0;
+            display: inline-block;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            padding: 10 px 16px;
+            line-height: 24px;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            width: auto;
+            -webkit-transition: box-shadow .2s ease-in-out;
+            -o-transition: box-shadow .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+        }
+
+        .coupon-icons button.button:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        button.button {
+            -webkit-box-shadow: inset 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 0 transparent;
+            background-color: #16a085;
+            border: 0;
+            border-radius: 0;
+            display: inline-block;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            padding: 10px 16px;
+            line-height: 24px;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            width: auto;
+            -webkit-transition: box-shadow .2s ease-in-out;
+            -o-transition: box-shadow .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+        }
+
+        button.button:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        td.product-name a {
+            color: #fff;
+        }
+
+        td.product-quantity input {
+            width: 50px;
+            height: 42px;
+            padding: 2px;
+            text-align: center;
+        }
+
+        .wc-proceed-to-checkout a,
+        .shopping_btn_cstm a {
+            -webkit-box-shadow: inset 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 0 transparent;
+            background-color: #16a085;
+            border: 0;
+            border-radius: 0;
+            display: inline-block;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            padding: 8px 16px;
+            line-height: 24px;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            width: auto;
+            -webkit-transition: box-shadow .2s ease-in-out;
+            -o-transition: box-shadow .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 120%;
+            margin-bottom: 20px;
+        }
+
+        .wc-proceed-to-checkout a:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        td.product-remove a {
+            display: block;
+            /* float: left; */
+            width: 20px;
+            background: 0 0;
+            text-align: center;
+            border-radius: 0;
+            z-index: 1000;
+            color: red;
+            border: 1px solid red;
+            padding-right: 0;
+            height: 20px;
+            font-size: 16px;
+            line-height: 1;
+            transition: background .1s ease-in-out;
+        }
+
+        td.product-remove {
+            width: 28px;
+        }
+
+        .cart-collaterals table {
+            margin-bottom: 10px;
+        }
+
+        button.button.satay {
+            opacity: .8 !important;
+        }
+
+        a.calculat-shipping {
+            color: #16a085;
+        }
+
+
+
+        @media (max-width:767px) {
+            .coupon-icons {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        @media (max-width:575px) {
+            th.product-price {
+                display: none;
+            }
+
+            td.product-price {
+                display: none;
+            }
+
+            .coupon-icons input {
+                max-width: 100%;
+            }
+
+            .coupon-icons button.button {
+                width: 100%;
+                margin-top: 18px;
+            }
+
+            button.button.satay {
+                opacity: .8 !important;
+                width: 100%;
+                margin-top: 18px;
+            }
+        }
+    </style>
+    <style>
+        .custom-select {
+            position: relative;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .select-box {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .selected-item {
+            flex-grow: 1;
+        }
+
+
+
+        .options {
+            position: absolute;
+            display: none;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .search-box {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        ul.options.active {
+            display: block;
+        }
+
+        .place-order button:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        li.option {
+            color: #ffc205;
+            margin: 10px;
+        }
+
+        li.option:hover {
+            background-color: #16a085;
+            color: #fff;
+        }
+
+        .calculate-shipping {
+            display: none;
+        }
+
+
+        form.change-calculate-form p.form-row input,
+        form.change-address-form p.form-row input {
+            width: 100%;
+            border: 1px solid #eeeeee4a;
+            margin-top: 12px;
+            position: relative;
+            width: 100%;
+            background-color: rgba(0, 0, 0, .07);
+            border-radius: 0;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            box-shadow: rgba(0, 0, 0, .0980392) 0 1px 0;
+            padding: 10px;
+            outline: none;
+            margin: 8px 0;
+            color: #fff;
+        }
+
+        .calculate-shipping .selected-item {
+            color: #000;
+        }
+
+        .arrow {
+            color: #000;
+        }
+
+        a#change-address {
+            color: #16a085;
+        }
+
+        form.change-calculate-form p,
+        form.change-address-form p {
+            margin-bottom: 0;
+        }
+
+
+        button.update-btn {
+            -webkit-box-shadow: inset 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 0 transparent;
+            background-color: #16a085;
+            border: 0;
+            border-radius: 0;
+            display: inline-block;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            padding: 8px 16px;
+            line-height: 24px;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            width: auto;
+            -webkit-transition: box-shadow .2s ease-in-out;
+            -o-transition: box-shadow .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+        }
+
+        button.update-btn:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        form.change-calculate-form a {
+            cursor: pointer;
+        }
+    </style>
+
+
+   
+</head>
+
+
+
+
+<body>
+
+    <div class="main-page">
+        <header class="header">
+            <!-- main header -->
+            <div class="navigation page-header">
+                <div class="container">
+                    <div class="navigation-inner">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="images/logo.png" alt="logo">
+                                </a>
+                            </div>
+                            <div class="sidena mycel" id="mySidenav">
+                                <div class="magnifying">
+                                    <ul class="desk-trt">
+
+                                        <li class="update-menu" data-bs-toggle="modal" data-bs-target="#myModal"><a
+                                                class=""><span> Login/Signup</span> </a></li>
+                                        <li class="dropdown"><a href="our-products.html" class="signup">MY ACCOUNT </a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <div class="kt-woo-account-nav">
+                                                        <div class="kad-account-avatar">
+                                                            <div class="kad-customer-image">
+                                                                <img src="images/user.png" alt="user">
+                                                            </div>
+                                                            <div class="kad-customer-name">
+                                                                <h5> Terri Pangas </h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="MyAccount-navigation">
+                                                            <ul class="ashboard">
+                                                                <li class=""> <a href="my-account.html"
+                                                                        class="active">Dashboard <i
+                                                                            class="fa-solid fa-gauge"></i></a> </li>
+                                                                <li class=""> <a href="">Orders<i
+                                                                            class="fa-solid fa-bag-shopping"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="downloads.html">Downloads <i
+                                                                            class="fa-solid fa-download"></i></a> </li>
+                                                                <li class=""> <a href="edit-address.html">Addresses <i
+                                                                            class="fa-solid fa-house"></i></a></li>
+                                                                <li class=""> <a href="payment-methods.html">Payment
+                                                                        methods <i
+                                                                            class="fa-solid fa-credit-card"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="edit-account.html">Account
+                                                                        details <i class="fa-solid fa-user"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="wt-smart-coupon.html">My Coupons
+                                                                        <i class="fa-solid fa-credit-card"></i></a>
+                                                                </li>
+                                                                <li class=""><a href="log-out.html">Log out <i
+                                                                            class="fa-solid fa-arrow-right"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a>
+                                                <span class="kt-extras-label">
+                                                    <span class="cart-extras-title">Cart</span>
+                                                </span>
+                                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+
+                                                <span class="kt-cart-total">0</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-media"><a><i class="fa-brands fa-facebook-f"></i> </a></li>
+                                        <li class="social-media"><a> <i class="fa-brands fa-instagram"></i> </a></li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="toggle-bar">
+                                <span class="toggle_menu" onclick="openNav()"><i class="fa fa-bars"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HEADER BOTTOM -->
+            <div class="outside-second">
+                <div class="second-navclass">
+                    <div class="container">
+                        <div class="second-clearfix">
+                            <div class="sidenavs" id="mySidenavs">
+                                <span class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></span>
+                                <div class="screen-reader">
+                                    <div class="">
+                                        <form action="">
+                                            <div class="search-box">
+                                                <input type="search" class="search-field no-cancel-button"
+                                                    placeholder="Search …" value="" name="s">
+                                                <span class="magnifying"><i
+                                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="order-prints.html">Shop</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="fun-facts.html">Fun Facts</a></li>
+                                    <li class="dropdown"><a href="our-products.html">Our Products <i
+                                                class="fa-solid fa-caret-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="scrapbook-prints.html">SCRAPBOOK PRINTS</a></li>
+                                            <li><a href="canvas-prints.html">CANVAS PRINTS</a></li>
+                                            <li><a href="posters-panoramics.html">POSTERS & PANORAMICS</a></li>
+                                            <li><a href="prints-enlargements.html">PRINTS & ENLARGEMENTS</a></li>
+                                            <li><a href="image.html">Photos for Sale</a></li>
+                                            <li><a href="giftcard.html">Gift Card</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="get-a-quote.html">Get a Quote</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HEADER BOTTOM -->
+
+        </header>
+
+
+        <section class="coupon-main">
+            <div class="container">
+                <div class="coupon-inner">
+                    <div class="coupon-wrapper">
+                        <p> Coupon code applied successfully </p>
+                    </div>
+                    <div class="entry-content">
+                        <div class="kt-woo-cart-form-wrap">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <form action="#" class="intero">
+                                        <div class="cart-summary">
+                                            <h2>Cart Summary</h2>
+                                        </div>
+                                        <table cellspacing="0">
+                                            <thead>
+                                                <th>
+                                                    <tr>
+
+                                                        <th colspan="3" class="product-name">Product</th>
+                                                        <th class="product-price">Price</th>
+                                                        <th class="product-quantity">Quantity</th>
+                                                        <th class="product-subtotal">Subtotal</th>
+                                                    </tr>
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="product-remove">
+                                                        <a href="">×</a>
+                                                    </td>
+                                                    <td class="product-thumbnail">
+                                                        <a href="#"><img src="images/cart-img.jfif" alt=""></a>
+                                                    </td>
+                                                    <td class="product-name">
+                                                        <a href="">5”x5” Prints</a>
+                                                    </td>
+                                                    <td class="product-price">
+                                                        <span class=""><bdi><span class="">$</span>0.55</bdi></span>
+                                                    </td>
+                                                    <td class="product-quantity">
+                                                        <input type="number" name="" id="" placeholder="0">
+                                                    </td>
+                                                    <td class="product-subtotal">
+                                                        <span><bdi><span>$</span>0.55</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="actions">
+                                                        <div class="coupon-icons">
+                                                            <input type="text" name="coupon_code" class="input-text"
+                                                                id="coupon_code" value="" placeholder="Coupon code">
+                                                            <button type="submit" class="button" name="apply_coupon"
+                                                                value="Apply coupon">Apply coupon</button>
+                                                        </div>
+                                                        <button type="submit " class="button satay" name="update_cart"
+                                                            value="Update cart">Update cart</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="cart-collaterals">
+                                        <div class="cart_totals ">
+                                            <h2>Cart totals</h2>
+                                        </div>
+                                        <table cellspacing="0">
+                                            <tbody>
+                                                <tr class="cart-subtotal">
+                                                    <th>Subtotal</th>
+                                                    <td data-title="Subtotal"><span><bdi><span>$</span>0.55</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr class="cart-discount coupon-eofy-discount">
+                                                    <th>Coupon: eofy discount</th>
+                                                    <td data-title="Coupon: eofy discount">-<span
+                                                            class="woocommerce-Price-amount amount"><span
+                                                                class="woocommerce-Price-currencySymbol">$</span>0.27</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Shipping</th>
+                                                    <td>
+                                                        <span class="flat-rate"> Flat rate: $20.00</span>
+                                                        <p>
+                                                        <p class="">
+                                                            Shipping to <strong>ghhhhhhhhhhhhhh, ccc Northern Territory
+                                                                ghhhhhhhhhhhhh</strong>. </p>
+                                                        </p>
+                                                        <p class="woocommerce-shipping-destination">
+                                                            Shipping options will be updated during checkout. </p>
+
+                                                        <form action="" class="change-calculate-form">
+                                                            <a class="calculat-shipping"
+                                                                id="calculat-shipping">Calculate shipping</a>
+                                                            <div class="calculate-shipping">
+                                                                <div class="custom-select">
+                                                                    <div class="select-box">
+                                                                        <div class="selected-item">
+                                                                            Select an option
+                                                                        </div>
+                                                                        <div class="arrow">
+                                                                            <i class="fa-solid fa-caret-down"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ul class="options">
+                                                                        <input type="text" class="search-box"
+                                                                            placeholder="Search options">
+                                                                        <li class="option">Australian Capital
+                                                                            Territory
+                                                                        </li>
+                                                                        <li class="option">New South Wales</li>
+                                                                        <li class="option">Northern Territory</li>
+
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="custom-select">
+                                                                    <div class="select-box">
+                                                                        <div class="selected-item">
+                                                                            Select an option
+                                                                        </div>
+                                                                        <div class="arrow">
+                                                                            <i class="fa-solid fa-caret-down"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ul class="options">
+                                                                        <input type="text" class="search-box"
+                                                                            placeholder="Search options">
+                                                                        <li class="option">Australian Capital
+                                                                            Territory
+                                                                        </li>
+                                                                        <li class="option">New South Wales</li>
+                                                                        <li class="option">Northern Territory</li>
+
+                                                                    </ul>
+                                                                </div>
+                                                                <p class="form-row">
+                                                                    <input type="text" name="city" placeholder="city">
+                                                                </p>
+                                                                <p class="form-row">
+                                                                    <input type="text" name="city"
+                                                                        placeholder="postcode/ ZIP">
+                                                                </p>
+                                                                <p class="form-row">
+                                                                    <button type="button"
+                                                                        class="update-btn">Update</button>
+                                                                </p>
+                                                            </div>
+                                                        </form>
+
+                                                        <form action="" class="change-address-form">
+                                                            <a class="calculat-shipping"
+                                                            id="calculat-shipping">Change
+                                                                address</a>
+                                                            <div class="calculate-shipping">
+                                                                <div class="custom-select">
+                                                                    <div class="select-box">
+                                                                        <div class="selected-item">
+                                                                            Select an option
+                                                                        </div>
+                                                                        <div class="arrow">
+                                                                            <i class="fa-solid fa-caret-down"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ul class="options">
+                                                                        <input type="text" class="search-box"
+                                                                            placeholder="Search options">
+                                                                        <li class="option">Australian Capital Territory
+                                                                        </li>
+                                                                        <li class="option">New South Wales</li>
+                                                                        <li class="option">Northern Territory</li>
+
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="custom-select">
+                                                                    <div class="select-box">
+                                                                        <div class="selected-item">
+                                                                            Select an option
+                                                                        </div>
+                                                                        <div class="arrow">
+                                                                            <i class="fa-solid fa-caret-down"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ul class="options">
+                                                                        <input type="text" class="search-box"
+                                                                            placeholder="Search options">
+                                                                        <li class="option">Australian Capital Territory
+                                                                        </li>
+                                                                        <li class="option">New South Wales</li>
+                                                                        <li class="option">Northern Territory</li>
+
+                                                                    </ul>
+                                                                </div>
+                                                                <p class="form-row">
+                                                                    <input type="text" name="city" placeholder="city">
+                                                                </p>
+                                                                <p class="form-row">
+                                                                    <input type="text" name="city"
+                                                                        placeholder="postcode/ ZIP">
+                                                                </p>
+                                                                <p class="form-row">
+                                                                    <button type="button"
+                                                                        class="update-btn">Update</button>
+                                                                </p>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td data-title="Total">
+                                                        <strong><span><bdi><span>$</span>0.28</bdi></span></strong>
+                                                        <small class="includes_tax">(includes
+                                                            <span><span>$</span>0.03</span>
+                                                            GST)</small>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="wc-proceed-to-checkout">
+                                            <a href="" class="checkout-button button alt wc-forward">
+                                                Proceed to checkout</a>
+                                        </div>
+                                        <div class="shopping_btn_cstm"> <a href="#" class="shop_cont_button">Continue
+                                                Shopping →</a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--  -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footerbase">
+                    <div class="footercredits">
+                        <p> © 2024 Shadows Photo Printing - WordPress Theme by <a href="#">Kadence WP</a>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="login-popup">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="woocommerce-notices-wrapper">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="customer_login">
+                                        <div class="woocommerce-form">
+                                            <h2>Login</h2>
+                                            <form action="#" method="post">
+                                                <div class="woocommerce-wrapper">
+                                                    <label for="username-pop">Username or email address *</label>
+                                                    <input type="text" name="username" id="username-pop">
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <label for="username-pop">Password*</label>
+                                                    <input type="text" name="username" id="username-pop">
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <button type="button" class="login-btn">Login</button>
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <input type="checkbox">
+                                                    <span>Remember me</span>
+                                                </div>
+                                                <p class="woocommerce-LostPassword lost_password">
+                                                    <a href="#">Lost your password?</a>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="customer_login">
+                                        <div class="woocommerce-form">
+                                            <h2>Register
+                                            </h2>
+                                            <form action="#" method="post">
+                                                <div class="woocommerce-wrapper">
+                                                    <label for="username-pop">Username *</label>
+                                                    <input type="text" name="username" id="username-pop">
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <label for="username-pop">Email address *</label>
+                                                    <input type="text" name="username" id="username-pop">
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <label for="username-pop">Password *</label>
+                                                    <input type="text" name="username" id="username-pop">
+                                                </div>
+
+                                                <div class="woocommerce-wrapper">
+                                                    <p>Your personal data will be used to support your experience
+                                                        throughout
+                                                        this website, to manage access to your account, and for other
+                                                        purposes described in our <span class="privacy-text">privacy
+                                                            policy</span>.</p>
+                                                </div>
+                                                <div class="woocommerce-wrapper">
+                                                    <button type="button" class="login-btn">Register</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a id="button"></a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        })
+
+    </script>
+    <script>
+        $('.fade-slider').slick({
+            autoplay: true,
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectBoxes = document.querySelectorAll('.select-box');
+
+            selectBoxes.forEach(selectBox => {
+                const optionsContainer = selectBox.nextElementSibling;
+                const searchBox = optionsContainer.querySelector('.search-box');
+                const optionsList = optionsContainer.querySelectorAll('.option');
+
+                // Toggle options display
+                selectBox.addEventListener('click', function () {
+                    optionsContainer.classList.toggle('active');
+                });
+
+                // Select option
+                optionsList.forEach(option => {
+                    option.addEventListener('click', function () {
+                        selectBox.querySelector('.selected-item').textContent = option.textContent;
+                        optionsContainer.classList.remove('active');
+                    });
+                });
+
+                // Filter options based on search input
+                searchBox.addEventListener('keyup', function (e) {
+                    const searchText = e.target.value.toLowerCase();
+                    optionsList.forEach(option => {
+                        const text = option.textContent.toLowerCase();
+                        if (text.includes(searchText)) {
+                            option.style.display = 'block';
+                        } else {
+                            option.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+     <script>
+
+        $(document).ready(function () {
+            $(".calculat-shipping").click(function () {
+                $(".calculate-shipping").slideToggle();
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

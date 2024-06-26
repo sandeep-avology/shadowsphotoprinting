@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout - Shadows Photo Printing</title>
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        body.checkout-page footer.footer {
+            margin: 0;
+        }
+
+        .coupon-inner {
+            padding: 30px 15px;
+        }
+
+        .coupon-wrapper p {
+            padding: 15px;
+            margin-bottom: 24px;
+            background-color: #16a085;
+            margin-left: 0;
+            color: #fff;
+            list-style: none;
+            line-height: 24px;
+            border-left: 8px solid rgba(0, 0, 0, .15);
+            margin-bottom: 24px;
+        }
+
+        .billing-row {
+            padding-top: 30px;
+        }
+
+        .coupon-wrapper p a {
+            color: #fff;
+            border-bottom: 2px solid rgba(255, 255, 255, .5);
+        }
+
+        /*  */
+        .woocommerce-billing-fields h3 {
+            font-family: "Source Sans Pro";
+            line-height: 40px;
+            letter-spacing: 1.2px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 28px;
+            margin-bottom: 14px
+        }
+
+        .fields__field-wrapper p label,
+        p.form-row span {
+
+            width: 100%;
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+        }
+
+        p.form-row input,
+        textarea.input-text {
+            width: 100%;
+            border: 1px solid #eeeeee4a;
+            margin-top: 12px;
+            position: relative;
+            width: 100%;
+            background-color: rgba(0, 0, 0, .07);
+            border-radius: 0;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            box-shadow: rgba(0, 0, 0, .0980392) 0 1px 0;
+            padding: 10px;
+            outline: none;
+            margin: 12px 0 12px;
+            color: #fff;
+        }
+
+        .order-notes p.form-row label {
+            width: 100%;
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+        }
+
+        p.form-row textarea#order_comments {
+            width: 100%;
+            border: 1px solid #eeeeee4a;
+            margin-top: 12px;
+            position: relative;
+            width: 100%;
+            background-color: rgba(0, 0, 0, .07);
+            border-radius: 0;
+            -webkit-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            box-shadow: rgba(0, 0, 0, .0980392) 0 1px 0;
+            padding: 10px;
+            outline: none;
+            margin: 12px 0 12px;
+            color: #fff;
+        }
+
+        .fields__field-_gangast {
+            display: none;
+        }
+
+        table.shop_table {
+            width: 100%;
+        }
+
+        table.shop_table th {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        table.shop_table td {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .payment_methods {
+            border: 1px solid #eeeeee4a;
+        }
+
+        .payment_methods ul li label::before {
+            content: '';
+            background: #16a085;
+            border-color: #16a085;
+            width: 10px;
+            display: inline-block;
+            border: 1px solid rgba(0, 0, 0, .2);
+            height: 10px;
+            border-radius: 50%;
+            margin-left: -5px;
+            margin-right: 4px;
+        }
+
+        .payment_methods ul li label {
+            position: relative;
+            background: rgba(0, 0, 0, .02);
+            display: block;
+            border-left: 5px solid rgba(0, 0, 0, .02);
+            padding: 8px 15px;
+            -webkit-transition: border .2s ease-in-out;
+            -o-transition: border .2s ease-in-out;
+            transition: border .2s ease-in-out;
+            margin-bottom: 4px;
+            font-weight: 700;
+            border-left: 5px solid #16a085;
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+        }
+
+        .payment_box_payment_method_stripe {
+            position: relative;
+            width: 100%;
+            padding: 15px;
+            font-size: 95%;
+        }
+
+        .stripe-payment-data p,
+        .wc-content span {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .stripeElement input,
+        .throughout input {
+            width: 100%;
+            color: #31325F;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #fff;
+            outline: 0;
+        }
+
+        .stripeElement {
+            position: relative;
+        }
+
+        .credit-link {
+            position: absolute;
+            top: 9px;
+            right: 7px;
+        }
+
+        .credit-link span i {
+            color: #ccc;
+            font-size: 23px;
+            padding-left: 10px;
+        }
+
+        button.button-link {
+            background: #011e0f;
+            border-radius: 6px;
+            border: 1px solid #034f28;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 0 9px;
+            white-space: nowrap;
+            color: #ffff;
+        }
+
+        button.button-link a {
+            color: #00d66f;
+            margin-left: 4px;
+        }
+
+        .throughout label {
+            font-weight: 400 !important;
+            border-left: 0 !important;
+            padding: 8px 0 !important;
+        }
+
+        .throughout label::before {
+            display: none !important;
+        }
+
+        .wc-stripe-cc-form {
+            border: 2px solid #eee;
+            padding: 10px 20px 10px;
+            margin: 0 2px 20px;
+        }
+
+        fieldset.checkbox-wrapper {
+            border: 2px solid #eee;
+            padding: 10px 20px 10px;
+            margin: 0 2px 20px;
+        }
+
+        fieldset.checkbox-wrapper span {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+        }
+
+        .experience-throughout p {
+            font-family: "Source Sans Pro";
+            line-height: 24px;
+            letter-spacing: 0px;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc205;
+            font-size: 16px;
+            margin-bottom: 25px;
+            margin-top: 20px;
+        }
+
+        .experience-throughout p a {
+            color: #16a085;
+            border-bottom: 2px solid #eee;
+            -webkit-transition: border .2s
+        }
+
+        div#payment {
+            margin-top: 20px;
+        }
+
+        .place-order button {
+            width: 100%;
+            font-size: 120%;
+            margin-top: 10px;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: inset 0 0 0 0 transparent;
+            background-color: #16a085;
+            border: 0;
+            border-radius: 0;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            line-height: 24px;
+            text-decoration: none;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
+            -o-transition: box-shadow .2s ease-in-out;
+            transition: box-shadow .2s ease-in-out;
+        }
+
+        .custom-select {
+            position: relative;
+            width: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .select-box {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .selected-item {
+            flex-grow: 1;
+        }
+
+
+
+        .options {
+            position: absolute;
+            display: none;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .search-box {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        ul.options.active {
+            display: block;
+        }
+
+        .place-order button:hover {
+            box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        li.option {
+            color: #ffc205;
+            margin: 10px;
+        }
+
+        li.option:hover {
+            background-color: #16a085;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+
+
+
+<body class="checkout-page">
+
+    <div class="main-page">
+        <header class="header">
+            <!-- main header -->
+            <div class="navigation page-header">
+                <div class="container">
+                    <div class="navigation-inner">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="images/logo.png" alt="logo">
+                                </a>
+                            </div>
+                            <div class="sidena mycel" id="mySidenav">
+                                <div class="magnifying">
+                                    <ul class="desk-trt">
+
+                                        <li class="update-menu" data-bs-toggle="modal" data-bs-target="#myModal"><a
+                                                class=""><span> Login/Signup</span> </a></li>
+                                        <li class="dropdown"><a href="our-products.html" class="signup">MY ACCOUNT </a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <div class="kt-woo-account-nav">
+                                                        <div class="kad-account-avatar">
+                                                            <div class="kad-customer-image">
+                                                                <img src="images/user.png" alt="user">
+                                                            </div>
+                                                            <div class="kad-customer-name">
+                                                                <h5> Terri Pangas </h5>
+                                                            </div>
+                                                        </div>
+                                                        <div class="MyAccount-navigation">
+                                                            <ul class="ashboard">
+                                                                <li class=""> <a href="my-account.html"
+                                                                        class="active">Dashboard <i
+                                                                            class="fa-solid fa-gauge"></i></a> </li>
+                                                                <li class=""> <a href="">Orders<i
+                                                                            class="fa-solid fa-bag-shopping"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="downloads.html">Downloads <i
+                                                                            class="fa-solid fa-download"></i></a> </li>
+                                                                <li class=""> <a href="edit-address.html">Addresses <i
+                                                                            class="fa-solid fa-house"></i></a></li>
+                                                                <li class=""> <a href="payment-methods.html">Payment
+                                                                        methods <i
+                                                                            class="fa-solid fa-credit-card"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="edit-account.html">Account
+                                                                        details <i class="fa-solid fa-user"></i></a>
+                                                                </li>
+                                                                <li class=""> <a href="wt-smart-coupon.html">My Coupons
+                                                                        <i class="fa-solid fa-credit-card"></i></a>
+                                                                </li>
+                                                                <li class=""><a href="log-out.html">Log out <i
+                                                                            class="fa-solid fa-arrow-right"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a>
+                                                <span class="kt-extras-label">
+                                                    <span class="cart-extras-title">Cart</span>
+                                                </span>
+                                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+
+                                                <span class="kt-cart-total">0</span>
+                                            </a>
+                                        </li>
+                                        <li class="social-media"><a><i class="fa-brands fa-facebook-f"></i> </a></li>
+                                        <li class="social-media"><a> <i class="fa-brands fa-instagram"></i> </a></li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="toggle-bar">
+                                <span class="toggle_menu" onclick="openNav()"><i class="fa fa-bars"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HEADER BOTTOM -->
+            <div class="outside-second">
+                <div class="second-navclass">
+                    <div class="container">
+                        <div class="second-clearfix">
+                            <div class="sidenavs" id="mySidenavs">
+                                <span class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></span>
+                                <div class="screen-reader">
+                                    <div class="">
+                                        <form action="">
+                                            <div class="search-box">
+                                                <input type="search" class="search-field no-cancel-button"
+                                                    placeholder="Search …" value="" name="s">
+                                                <span class="magnifying"><i
+                                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="order-prints.html">Shop</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="fun-facts.html">Fun Facts</a></li>
+                                    <li class="dropdown"><a href="our-products.html">Our Products <i
+                                                class="fa-solid fa-caret-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="scrapbook-prints.html">SCRAPBOOK PRINTS</a></li>
+                                            <li><a href="canvas-prints.html">CANVAS PRINTS</a></li>
+                                            <li><a href="posters-panoramics.html">POSTERS & PANORAMICS</a></li>
+                                            <li><a href="prints-enlargements.html">PRINTS & ENLARGEMENTS</a></li>
+                                            <li><a href="image.html">Photos for Sale</a></li>
+                                            <li><a href="giftcard.html">Gift Card</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="get-a-quote.html">Get a Quote</a></li>
+                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- HEADER BOTTOM -->
+
+        </header>
+
+
+        <section class="coupon-main">
+            <div class="container">
+                <div class="coupon-inner">
+                    <div class="coupon-wrapper">
+                        <p> Returning customer? <a href="#">Click here to login</a> </p>
+                        <p> Have a coupon? <a href="#">Click here to enter your code</a> </p>
+                    </div>
+                    <div class="billing-row">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="woocommerce-billing-fields">
+                                    <h3>Billing details</h3>
+                                    <div class="fields__field-wrapper">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="form-row">
+                                                    <label>First name * </label>
+                                                    <input type="text" name="name" placeholder="developer ">
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="form-row">
+                                                    <label>Last name *
+                                                    </label>
+                                                    <input type="text" name="lname" id="lname" placeholder="dev ">
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p class="form-row">
+                                            <label>Company name (optional) </label>
+                                            <input type="text" name="company-name" placeholder="test ">
+                                        </p>
+                                        <p class="form-row">
+                                            <label>Country / Region *
+                                            </label>
+                                            <span> <strong>Australia </strong></span>
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Street address *
+                                            </label>
+                                            <input type="text" name="street"
+                                                placeholder="House number and street name ">
+                                            <input type="text" name="suite"
+                                                placeholder="Apartment, suite, unit, etc. (optional) ">
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Suburb * </label>
+                                            <input type="text" name="suburb" id="suburb" placeholder="">
+                                        </p>
+                                        <p class="form-row">
+                                        <div class="custom-select">
+                                            <div class="select-box">
+                                                <div class="selected-item">
+                                                    Select an option
+                                                </div>
+                                                <div class="arrow">
+                                                    <i class="fa-solid fa-caret-down"></i>
+                                                </div>
+                                            </div>
+                                            <ul class="options">
+                                                <input type="text" class="search-box" placeholder="Search options">
+                                                <li class="option">Australian Capital Territory</li>
+                                                <li class="option">New South Wales</li>
+                                                <li class="option">Northern Territory</li>
+                                                <li class="option">Queensland</li>
+                                                <li class="option">South Australia</li>
+                                                <li class="option">Tasmania</li>
+                                                <li class="option">Victoria</li>
+                                                <li class="option">Western Australia</li>
+                                                <!-- Add more options as needed -->
+                                            </ul>
+                                        </div>
+
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Postcode *
+                                            </label>
+                                            <input type="text" name="postcode">
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Phone (optional)
+                                            </label>
+                                            <input type="number" name="number1">
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Email address *
+                                            </label>
+                                            <input type="email" name="email12">
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Account username * </label>
+                                            <input type="text" name="username" id="postcode" placeholder="Username">
+                                        </p>
+                                        <p class="form-row">
+                                            <label> Create account password *
+                                            </label>
+                                            <input type="password" name="password" placeholder="Password">
+                                        </p>
+
+                                    </div>
+                                    <div class="Ship-field">
+                                        <div class="ship-to-different">
+                                            <h3 class="ship-to-different-address">
+                                                <label for="chkPassport">
+                                                    <input type="checkbox" id="chkPassport"> <span> Ship to a different
+                                                        address?</span>
+                                                </label>
+                                            </h3>
+                                            <div class="fields__field-_gangast" id="dvPassport">
+                                                <div class="fields__field-wrapper">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <p class="form-row">
+                                                                <label>First name * </label>
+                                                                <input type="text" name="name" placeholder="developer ">
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <p class="form-row">
+                                                                <label>Last name *
+                                                                </label>
+                                                                <input type="text" name="lname" placeholder="dev ">
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <p class="form-row">
+                                                        <label>Company name (optional) </label>
+                                                        <input type="text" name="company-name" placeholder="test ">
+                                                    </p>
+                                                    <p class="form-row">
+                                                        <label>Country / Region *
+                                                        </label>
+                                                        <span> <strong>Australia </strong></span>
+                                                    </p>
+                                                    <p class="form-row">
+                                                        <label> Street address *
+                                                        </label>
+                                                        <input type="text" name="street1"
+                                                            placeholder="House number and street name ">
+                                                        <input type="text" name="street2"
+                                                            placeholder="Apartment, suite, unit, etc. (optional) ">
+                                                    </p>
+                                                    <p class="form-row">
+                                                        <label> Suburb * </label>
+                                                        <input type="text" name="suburb" placeholder="">
+                                                    </p>
+                                                    <p class="form-row">
+                                                    <div class="custom-select">
+                                                        <div class="select-box">
+                                                            <div class="selected-item">
+                                                                Select an option
+                                                            </div>
+                                                            <div class="arrow">
+                                                                <i class="fa-solid fa-caret-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="options">
+                                                            <input type="text" class="search-box"
+                                                                placeholder="Search options">
+                                                            <li class="option">Australian Capital Territory</li>
+                                                            <li class="option">New South Wales</li>
+                                                            <li class="option">Northern Territory</li>
+                                                            <li class="option">Queensland</li>
+                                                            <li class="option">South Australia</li>
+                                                            <li class="option">Tasmania</li>
+                                                            <li class="option">Victoria</li>
+                                                            <li class="option">Western Australia</li>q
+                                                            <!-- Add more options as needed -->
+                                                        </ul>
+                                                    </div>
+
+                                                    </p>
+                                                    <p class="form-row">
+                                                        <label> Postcode *
+                                                        </label>
+                                                        <input type="text" name="postcode0">
+                                                    </p>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="order-notes">
+                                                <p class="form-row">
+                                                    <label>Order notes (optional) </label>
+                                                    <textarea name="order_comments" class="input-text "
+                                                        placeholder="Notes about your order, e.g. special notes for delivery."
+                                                        rows="2" cols=""></textarea>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="woocommerce-billing-fields">
+                                    <h3>Your order</h3>
+                                    <div class="order_review">
+                                        <table class="shop_table ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> 5”x5” Prints&nbsp; <strong>×&nbsp;2</strong> </td>
+                                                    <td> <span><bdi><span>$</span>1.10</bdi></span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5”x5” Prints&nbsp; <strong>×&nbsp;2</strong> </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>1.10</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5”x5” Prints&nbsp; <strong>×&nbsp;2</strong> </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>1.10</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5”x5” Prints&nbsp; <strong>×&nbsp;2</strong> </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>1.10</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x5” Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.20</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x5” Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.20</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x5” Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.20</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x5” Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.20</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x 7" Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.80</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x 7" Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.80</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x 7" Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.80</bdi></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        5"x 7" Prints - With 4mm White Border&nbsp;
+                                                        <strong>×&nbsp;4</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span><bdi><span>$</span>2.80</bdi></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+
+                                                <tr>
+                                                    <th>Subtotal</th>
+                                                    <td><span><bdi><span>$</span>24.40</bdi></span> </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <th>Coupon: eofy discount</th>
+                                                    <td>-<span><span>$</span>12.20</span> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Shipping</th>
+                                                    <td>
+                                                        <ul>
+                                                            <li>
+                                                                <input type="hidden" data-index="0">
+                                                                <label>Flat rate:
+                                                                    <span><bdi><span>$</span>20.00</bdi></span>
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr class="order-total">
+                                                    <th>Total</th>
+                                                    <td><strong><span><bdi><span>$</span>32.20</bdi></span></strong>
+                                                        <small class="includes_tax">(includes
+                                                            <span><span>$</span>1.12</span>
+                                                            GST)</small>
+                                                    </td>
+                                                </tr>
+
+
+                                            </tfoot>
+                                        </table>
+                                        <div id="payment">
+                                            <div class="payment_methods ">
+                                                <ul>
+                                                    <li>
+                                                        <label for=""> Credit Card (Stripe) </label>
+                                                        <div class="payment_box_payment_method_stripe">
+                                                            <div class="stripe-payment-data">
+                                                                <p>Pay with your credit card via Stripe.</p>
+                                                            </div>
+                                                            <div class="wc-stripe-cc-form">
+                                                                <fieldset class="wc-stripe">
+                                                                    <div class="wc-content">
+                                                                        <span>Card Number *</span>
+                                                                        <div class="stripeElement ">
+                                                                            <input type="number"
+                                                                                placeholder="1234 1234 1234 1234">
+                                                                            <div class="credit-link">
+                                                                                <button type="button"
+                                                                                    class="button-link">
+                                                                                    Autofill <span><a
+                                                                                            href="#">link</a></span>
+                                                                                </button>
+                                                                                <span>
+                                                                                    <i
+                                                                                        class="fa-solid fa-credit-card"></i>
+                                                                                </span>
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="throughout ">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-6">
+                                                                                <label for=""> Expiry Date * </label>
+                                                                                <input type="text" name=""
+                                                                                    placeholder="MM/YY">
+                                                                            </div>
+                                                                            <div class="col-lg-6">
+                                                                                <label for=""> Card Code (CVC) *
+                                                                                </label>
+                                                                                <input type="text" name=""
+                                                                                    placeholder="CVC">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </fieldset>
+
+                                                            </div>
+                                                            <fieldset class="checkbox-wrapper">
+                                                                <input type="checkbox"> <span>
+                                                                    Save payment information to my account for
+                                                                    future purchases. </span>
+                                                            </fieldset>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="experience-throughout">
+                                                <p>Your personal data will be used to process your order, support your
+                                                    experience throughout this website, and for other purposes described
+                                                    in our <a href="#" target="_blank">privacy policy</a>.</p>
+                                                <div class="place-order">
+                                                    <button type="button"> Place order </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+
+
+
+    <!--  -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footerbase">
+                <div class="footercredits">
+                    <p> © 2024 Shadows Photo Printing - WordPress Theme by <a href="#">Kadence WP</a>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="login-popup">
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="woocommerce-notices-wrapper">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="customer_login">
+                                    <div class="woocommerce-form">
+                                        <h2>Login</h2>
+                                        <form action="#" method="post">
+                                            <div class="woocommerce-wrapper">
+                                                <label for="username-pop">Username or email address *</label>
+                                                <input type="text" name="username">
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <label for="username-pop1">Password*</label>
+                                                <input type="text" name="username1">
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <button type="button" class="login-btn">Login</button>
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <input type="checkbox">
+                                                <span>Remember me</span>
+                                            </div>
+                                            <p class="woocommerce-LostPassword lost_password">
+                                                <a href="#">Lost your password?</a>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="customer_login">
+                                    <div class="woocommerce-form">
+                                        <h2>Register
+                                        </h2>
+                                        <form action="#" method="post">
+                                            <div class="woocommerce-wrapper">
+                                                <label for="username-pop">Username *</label>
+                                                <input type="text" name="username3">
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <label for="username-pop">Email address *</label>
+                                                <input type="text" name="username4">
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <label for="username-pop">Password *</label>
+                                                <input type="text" name="username5">
+                                            </div>
+
+                                            <div class="woocommerce-wrapper">
+                                                <p>Your personal data will be used to support your experience
+                                                    throughout
+                                                    this website, to manage access to your account, and for other
+                                                    purposes described in our <span class="privacy-text">privacy
+                                                        policy</span>.</p>
+                                            </div>
+                                            <div class="woocommerce-wrapper">
+                                                <button type="button" class="login-btn">Register</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <a id="button"></a>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        })
+
+    </script>
+    <script>
+        $('.fade-slider').slick({
+            autoplay: true,
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+    </script>
+    <!--  -->
+    <script>
+        $(function () {
+            $("#chkPassport").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#dvPassport").show();
+                    $("#AddPassport").hide();
+                } else {
+                    $("#dvPassport").hide();
+                    $("#AddPassport").show();
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectBoxes = document.querySelectorAll('.select-box');
+
+            selectBoxes.forEach(selectBox => {
+                const optionsContainer = selectBox.nextElementSibling;
+                const searchBox = optionsContainer.querySelector('.search-box');
+                const optionsList = optionsContainer.querySelectorAll('.option');
+
+                // Toggle options display
+                selectBox.addEventListener('click', function () {
+                    optionsContainer.classList.toggle('active');
+                });
+
+                // Select option
+                optionsList.forEach(option => {
+                    option.addEventListener('click', function () {
+                        selectBox.querySelector('.selected-item').textContent = option.textContent;
+                        optionsContainer.classList.remove('active');
+                    });
+                });
+
+                // Filter options based on search input
+                searchBox.addEventListener('keyup', function (e) {
+                    const searchText = e.target.value.toLowerCase();
+                    optionsList.forEach(option => {
+                        const text = option.textContent.toLowerCase();
+                        if (text.includes(searchText)) {
+                            option.style.display = 'block';
+                        } else {
+                            option.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>
